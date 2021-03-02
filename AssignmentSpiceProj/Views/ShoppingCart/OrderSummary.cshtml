@@ -1,0 +1,47 @@
+﻿@model  AssignmentSpiceProj.Models.ViewModels.MenuItemViewModel
+
+@{ ViewBag.Title = "OrderSummary"; }
+
+<h2>OrderSummary</h2>
+
+
+
+<aside class="order-summary bg-contrast-lower radius-md ">
+
+
+
+
+
+    <table class="table" style="width:600px">
+        @{ double bag = 0; }
+
+        @foreach (var i in Model.ShoppingCarts)
+        {
+            double Total = 0;
+
+
+            Total = (@i.MenuItem.Price) * @i.Count;
+<tr>
+
+    <td>
+        <strong>@Html.DisplayFor(m => i.MenuItem.Name)</strong>
+        <br />
+
+        &#8377; @Html.DisplayFor(m => i.MenuItem.Price) x @Html.DisplayFor(m => i.Count)
+    </td>
+    <td>
+        <p>@Total.ToString("c")</p>
+    </td>
+</tr>bag = bag + Total;
+            }
+
+
+    </table>
+    <ul class="text-sm flex flex-column gap-xxs">
+       
+        <li class="flex justify-between"><i>Delivery</i> <i>Free</i></li>
+        <li class="flex justify-between font-bold"><i>Total</i>@bag.ToString("c") <i></i></li>
+    </ul>
+    <a class="text-sm" href="@Url.Action("Cart", "ShoppingCart")" style="padding-left: 520px;
+        font-family: cursive; font-size:larger;">Go Back <i class="sr-only">cart</i></a>
+</aside>

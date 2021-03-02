@@ -1,0 +1,16 @@
+F:\DotNet 2021\Project\Spice.DataLayer\bin\Debug\Spice.DataLayer.dll.config
+F:\DotNet 2021\Project\Spice.DataLayer\bin\Debug\Spice.DataLayer.dll
+F:\DotNet 2021\Project\Spice.DataLayer\bin\Debug\Spice.DataLayer.pdb
+F:\DotNet 2021\Project\Spice.DataLayer\bin\Debug\EntityFramework.dll
+F:\DotNet 2021\Project\Spice.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+F:\DotNet 2021\Project\Spice.DataLayer\bin\Debug\Spice.DomainModel.dll
+F:\DotNet 2021\Project\Spice.DataLayer\bin\Debug\Spice.DomainModel.pdb
+F:\DotNet 2021\Project\Spice.DataLayer\bin\Debug\EntityFramework.xml
+F:\DotNet 2021\Project\Spice.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+F:\DotNet 2021\Project\Spice.DataLayer\obj\Debug\Spice.DataLayer.csprojAssemblyReference.cache
+F:\DotNet 2021\Project\Spice.DataLayer\obj\Debug\Spice.DataLayer.csproj.CoreCompileInputs.cache
+F:\DotNet 2021\Project\Spice.DataLayer\obj\Debug\Spice.DataLayer.csproj.CopyComplete
+F:\DotNet 2021\Project\Spice.DataLayer\obj\Debug\Spice.DataLayer.dll
+F:\DotNet 2021\Project\Spice.DataLayer\obj\Debug\Spice.DataLayer.pdb
+F:\DotNet 2021\Project\Spice.DataLayer\obj\Debug\Spice.DataLayer.Migrations.InitialMigration.resources
+F:\DotNet 2021\Project\Spice.DataLayer\obj\Debug\Spice.DataLayer.csproj.GenerateResource.cache

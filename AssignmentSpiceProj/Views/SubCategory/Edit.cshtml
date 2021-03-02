@@ -1,0 +1,24 @@
+﻿@model Spice.DomainModel.SubCategory
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h2 class="text-info">Edit Category</h2>
+<br />
+
+<form action="/SubCategory/Edit" method="post" enctype="multipart/form-data">
+    <div class="border backgroundWhite">
+        <div class="form-group row">
+            @Html.LabelFor(m => m.Name)
+            @Html.HiddenFor(m => m.Id)
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Categoryname" })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "field-validation-error text-danger" })
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Edit Category</button>
+    <a class="btn btn-dark" href="/SubCategory/Index">Cancel</a>
+</form>
+

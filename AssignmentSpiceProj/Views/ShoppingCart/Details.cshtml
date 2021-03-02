@@ -1,0 +1,98 @@
+﻿@model Spice.DomainModel.MenuItem
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+@using (Html.BeginForm("AddtoCart", "ShoppingCart", new { a = Model.Id }))
+{
+<div class="border backgroundWhite row">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+    <div class="col-md-8">
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label asp-for="@Model.Name" class="text-info font-weight-bold">Name</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" name="ApplicationUserId" hidden value="@ViewBag.user" />
+                <input asp-for="@Model.Id" hidden value="@Model.Id" name="MenuItemId" />
+
+                <input asp-for="@Model.Name" readonly class="form-control" value="@Model.Name" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label asp-for="@Model.Description" class="text-info font-weight-bold">Description</label>
+            </div>
+            <div class="col-md-8">
+                <div class="border rounded p-2">
+                    @Html.Raw(@Model.Description)
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label asp-for="@Model.Price" class="text-info font-weight-bold">Price:$</label>
+            </div>
+            <div class="col-md-8">
+                <input asp-for="@Model.Price" readonly class="form-control" value="@Model.Price" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label asp-for="@Model.CategoryId" class="text-info font-weight-bold">Category</label>
+            </div>
+            <div class="col-md-8">
+                <input asp-for="@Model.Category.Name" readonly class="form-control" value="@Model.Category.Name" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label asp-for="@Model.SubCategoryId" class="text-info font-weight-bold">SubCategory</label>
+            </div>
+            <div class="col-md-8">
+                <input asp-for="@Model.SubCategory.Name" readonly class="form-control" value="@Model.SubCategory.Name" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label asp-for="@Model.Spicyness" class="text-info font-weight-bold">Spicyness</label>
+            </div>
+            <div class="col-md-8">
+                <input asp-for="@Model.Spicyness" readonly class="form-control" value="@Model.Spicyness">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label asp-for="Count" class="text-info font-weight-bold">Count</label>
+            </div>
+            <div class="col-md-8">
+                <input asp-for="Count" class="form-control" name="Count" value="1" />
+                <span asp-validation-for="Count" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                @*@<a asp-action="Menu" class="btn btn-success form-control">Back to List</a>@*@
+                @Html.ActionLink("Back to List", "Index", "Info", new { @class = "btn btn-primary" })
+            </div>
+            @*<div class="col-md-4">
+            @Html.ActionLink("Add To Cart", "Cart", "ShoppingCart", new { @class = "btn btn-primary" })
+        </div>*@
+            <div class="col-md-4">
+                <button type="submit" value="Add to Cart" class="btn btn-danger form-control">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 offset-1 d-none d-md-block">
+        <img src="data:image;base64,@Model.Image" style="width:100%" ;border-radius:5px;border:1px solid #bbb9b9;" />
+        @*@<img src="@Url.Content(Model.Image)" style="width:100%" ;border-radius:5px;border:1px solid #bbb9b9;" />@*@
+    </div>
+</div>}
+

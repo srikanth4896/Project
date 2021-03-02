@@ -1,0 +1,78 @@
+﻿@using AssignmentSpiceProj.Global;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/font-awesome.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">
+
+                <img src="~/Images/mild.png" title="mild" />
+            </a>
+            <a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">
+                <img src="~/Images/spicy.png" title="spicy" />
+            </a>
+            <a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">
+                <img src="~/Images/verySpicy.png" title="verySpicy" />
+            </a>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Spice", "Index", "Home")</li>
+                    <li><a href="~/ShoppingCart/Cart"><i class="fa fa-shopping-cart" style="font-size:24px">(@GlobalVariable.CartCount)</i></a></li>
+                
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="table">
+    </div>
+    <div class="text-center">
+        <div class="btn btn-info">
+            @Html.ActionLink("Show All", "Index", "Info")
+        </div>
+        <div class="btn btn-info">
+            @Html.ActionLink("APETIZER", "Apetizer", "Info")
+        </div>
+        <div class="btn btn-info">
+            @Html.ActionLink("MAIN COURSE", "MainCourse", "Info")
+        </div>
+        <div class="btn btn-info">
+            @Html.ActionLink("Dessert", "Dessert", "Info")
+        </div>
+        <div class="btn btn-info">
+            @Html.ActionLink("Beverages", "Beverages", "Info")
+        </div>
+    </div>
+    <div class="table">
+
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

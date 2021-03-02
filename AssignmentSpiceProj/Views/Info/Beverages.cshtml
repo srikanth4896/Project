@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Spice.DomainModel.MenuItem>
+@{
+    ViewBag.Title = "Beverages";
+}
+
+<h2>Beverages</h2>
+
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-striped border">
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    <img src="data:image;base64,@item.Image" width="200" />
+                </td>
+                <td>
+                    <h3 style="color:brown">
+                        @Html.DisplayFor(m => item.Name)
+                        @if (item.Spicyness == "SPICY")
+                        {
+                            <img src="~/Images/spicy.png" title="spicy"/>}
+                        @if (item.Spicyness == "VERY_SPICY")
+                        {
+                            <img src="~/Images/verySpicy.png" />}
+                        @if (item.Spicyness == "NOT_SPICY")
+                        {
+                            <img src="~/Images/mild.png" title="mild" />}
+                    </h3>
+                    <br />
+                    @Html.DisplayFor(m => item.Description)
+                    <br />
+
+                    <h5 style="color:darkcyan">
+                        Rs.@Html.DisplayFor(m => item.Price)
+                    </h5>
+                </td>
+
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Id, Controller = "ShoppingCart" }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        }
+    </table> }
+else
+{
+    <p>No menu item exists...</p>}

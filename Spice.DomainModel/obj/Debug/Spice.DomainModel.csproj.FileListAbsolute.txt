@@ -1,0 +1,6 @@
+F:\DotNet 2021\Project\Spice.DomainModel\bin\Debug\Spice.DomainModel.dll
+F:\DotNet 2021\Project\Spice.DomainModel\bin\Debug\Spice.DomainModel.pdb
+F:\DotNet 2021\Project\Spice.DomainModel\obj\Debug\Spice.DomainModel.csprojAssemblyReference.cache
+F:\DotNet 2021\Project\Spice.DomainModel\obj\Debug\Spice.DomainModel.csproj.CoreCompileInputs.cache
+F:\DotNet 2021\Project\Spice.DomainModel\obj\Debug\Spice.DomainModel.dll
+F:\DotNet 2021\Project\Spice.DomainModel\obj\Debug\Spice.DomainModel.pdb

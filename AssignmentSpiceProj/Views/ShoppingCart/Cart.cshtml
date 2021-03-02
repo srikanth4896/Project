@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Spice.DomainModel.ShoppingCart>
+@{ ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<div class="col-25">
+    @{ double Total = 0; }
+    <table class="table table-striped border">
+
+        @foreach (var item in Model)
+        {
+<tr>
+    <td><img src="data:image;base64,@item.MenuItem.Image" style="height:150px;width:150px" /></td>
+    <td>
+        <h2 style="color:darkred">@item.MenuItem.Name</h2>
+        <p>@item.MenuItem.Description</p>
+    </td>
+    <td width="100">
+        <h5>@item.MenuItem.Price x @item.Count</h5>
+    </td>
+    <td width="100">
+        <a href="~/ShoppingCart/PlusItems?cartId=@item.Id" type="submit" class="btn btn-info"><i class="glyphicon-plus" style="font-size:20px"></i></a>
+        <a href="~/ShoppingCart/MinusItems?cartId=@item.Id" type="submit" class="btn btn-danger"><i class="glyphicon-minus" style="font-size:20px"></i></a>
+    </td>
+    <td>
+        @using (Html.BeginForm("RemoveCart", "ShoppingCart", new { id = item.Id }))
+        {
+<button type="submit" class="danger"><i class="fa fa-trash"></i></button>}
+    </td>
+</tr>{
+                Total = (Total + (item.MenuItem.Price * item.Count));
+                Session["count"] = item.Count;
+            }
+        }
+    </table>
+    <div class="text-right">
+       Total  @String.Format("{0:C}", Total)
+    </div>
+</div>
+@Html.ActionLink("Back", "Index", new { Controller = "Info" }, new { @class = "btn btn-primary" })
+@Html.ActionLink("CheckOut", "OrderSummary", new { Controller = "ShoppingCart" }, new { @class = "btn btn-warning" })

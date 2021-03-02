@@ -1,0 +1,48 @@
+﻿@model AssignmentSpiceProj.Models.ViewModels.MenuItemViewModel
+@{ ViewBag.Title = "Create";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<br />
+<h2 class="text-info">Create MenuItem</h2>
+<br />
+
+<form action="/MenuItem/Create" method="post" enctype="multipart/form-data">
+    <div class="border backgroundWhite">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(m => m.MenuItem.Name);
+            @Html.TextBoxFor(m => m.MenuItem.Name, new { @class = "form-control", placeholder = "Item Name" })
+            @Html.ValidationMessageFor(m => m.MenuItem.Name, "", new { @class = "field-validation-error text-danger" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(m => m.MenuItem.Description);
+            @Html.TextBoxFor(m => m.MenuItem.Description, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.MenuItem.Description, "", new { @class = "field-validation-error text-danger" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(m => m.MenuItem.Spicyness);
+            @Html.DropDownList("spicyness", EnumHelper.GetSelectList(typeof(Spice.DomainModel.MenuItem.ESpicy)), "select spicyness")
+        </div>
+        <div class="form-group">
+            <label for="Image">Image</label>
+            <input type="file" class="form-control-file" name="Image" width="100" />
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(m => m.MenuItem.CategoryId);
+            @Html.TextBoxFor(m => m.MenuItem.CategoryId, new { @class = "form-control", placeholder = "Category" })
+            @Html.ValidationMessageFor(m => m.MenuItem.CategoryId, "", new { @class = "field-validation-error text-danger" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(m => m.MenuItem.SubCategoryId);
+            @Html.TextBoxFor(m => m.MenuItem.SubCategoryId, new { @class = "form-control", placeholder = "SubCategory" })
+            @Html.ValidationMessageFor(m => m.MenuItem.SubCategoryId, "", new { @class = "field-validation-error text-danger" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(m => m.MenuItem.Price);
+            @Html.TextBoxFor(m => m.MenuItem.Price, new { @class = "form-control", placeholder = "Price" })
+            @Html.ValidationMessageFor(m => m.MenuItem.Price, "", new { @class = "field-validation-error text-danger" })
+        </div>
+    </div>
+    @Html.ValidationSummary()
+    <button type="submit" class="btn btn-success">Add MenuItem</button>
+    @Html.ActionLink("Cancel", "Index", "SubCategory", new { @class = "btn btn-dark" })
+</form>
